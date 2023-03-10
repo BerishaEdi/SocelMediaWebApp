@@ -22,14 +22,14 @@ const Imagelist = () => {
   }, []);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: "gray" }}>
       {images.map(({ url, email }) => (
         <div key={email}>
-            <p>{email}</p>
+          <p style={{backgroundColor: "gray"}}>{email}</p>
           <img
             src={url}
             alt="storage-img"
-            style={{ width: '100%', maxWidth: '500px', marginBottom: '10px' }}
+            style={{ width: "500px", height: '500px', objectFit: 'cover', marginBottom: "10px", border: "3px solid black" }}
           />
           
         </div>

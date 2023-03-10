@@ -3,7 +3,6 @@ import { auth } from '../firebase'
 import { useNavigate } from "react-router-dom";
 
 
-
 const Login = () => {
 
     const [email, setEmail] = useState("")
@@ -30,11 +29,12 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className='wrapper'>
+        <div className='Login'>
             <p>Login</p>
-            <div>
+            <div className='Logininput'>
                 <form onSubmit={handleLogin}>
-                    <div className='Logininput' style={{ marginTop: "5%" }}>
+                    <div style={{ marginTop: "5%" }}>
                         <label>E-mail</label>
                         <br />
                         <input type="text" name="email" onChange={e => setEmail(e.target.value)} required />
@@ -51,6 +51,7 @@ const Login = () => {
                 </form>
             </div>
             <button onClick={goToSignin}>Zum Sign Up</button>            
+        </div>
         </div>
     )
 }
