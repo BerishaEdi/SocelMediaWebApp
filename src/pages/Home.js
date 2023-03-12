@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { auth, db, storage } from '../firebase'
 import ImageList from './Imagelist'
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
 
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('');
+  const navigate = useNavigate();
+
 
   const handleChange = (event) => {
     if (event.target.files[0]) {
@@ -53,8 +57,16 @@ const Home = () => {
 
 
   const handleLogOut = () => {
-
+    auth.signOut()
+    .then(() => {
+        console.log("User logged out successfully");
+        navigate("/");
+    })
+    .catch((error) => {
+        console.error("Error logging out:", error);
+    });
   }
+  
 
   return (
     <div>
