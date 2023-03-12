@@ -7,31 +7,28 @@ const Imagelist = () => {
   useEffect(() => {
     const postsRef = db.collection('posts');
 
-    // Retrieve all documents in the posts collection
+
     postsRef.get().then((querySnapshot) => {
       const urls = [];
       querySnapshot.forEach((doc) => {
-        // Get the imageUrl and timestamp fields from the document data
-            const { imageUrl, email } = doc.data();
-        // Add the url and timestamp to the urls array as an object
-        urls.push({ url: imageUrl, email });
+        const { imageUrl, email, caption } = doc.data();
+        urls.push({ url: imageUrl, email, caption });
       });
-      // Set the images state with the urls array
       setImages(urls);
     });
   }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: "gray" }}>
-      {images.map(({ url, email }) => (
+      {images.map(({ url, email, caption }) => (
         <div key={email}>
-          <p style={{backgroundColor: "gray"}}>{email}</p>
+          <p style={{backgroundColor: "gray"}}>Hochladen von: {email}</p>
           <img
             src={url}
             alt="storage-img"
-            style={{ width: "500px", height: '500px', objectFit: 'cover', marginBottom: "10px", border: "3px solid black" }}
+            style={{ width: "500px", height: '500px', objectFit: 'cover', marginBottom: "1px", border: "3px solid black" }}
           />
-          
+          <p style={{ marginBottom: "50px"}}>Beschreibung: {caption}</p>
         </div>
       ))}
     </div>

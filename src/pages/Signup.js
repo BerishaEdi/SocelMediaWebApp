@@ -34,7 +34,8 @@ const Signup = () => {
 
 
     return (
-        <div>
+        <div className='wrapper'>
+        <div className='SignUp'>
             <p>Sign Up</p>
             <div>
                 <form onSubmit={handleSignUp}>
@@ -56,6 +57,7 @@ const Signup = () => {
             </div>
             <br/>
             <button onClick={goToLogIn}>Zum LogIn</button>            
+        </div>
         </div>
     )
 }

@@ -25,6 +25,7 @@ const Home = () => {
     const email = currentUser.email;
     const storagePath = `images/${email}/${image.name}`;
 
+    
     const uploadTask = storage.ref(storagePath).put(image)
     uploadTask.on(
       'state_changed',
@@ -52,19 +53,18 @@ const Home = () => {
 
   return (
     <div>
-      <h2>Upload Image</h2>
+      <h2>Bild Hochladen</h2>
       <input type="file" onChange={handleChange} />
       <input
         type="text"
-        placeholder="Enter a caption"
+        placeholder="Beschreibung Hinzufügen"
         value={caption}
         onChange={(event) => setCaption(event.target.value)}
       />
       <button onClick={handleUpload}>Upload</button>
-      <h2>Images</h2>
-      <div className="image-list">
+      <div style={{ marginTop: "5%" }} className="image-list">
         <ImageList/>
-      </div>
+      </div> 
     </div>
   )
 }
