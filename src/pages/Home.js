@@ -25,7 +25,7 @@ const Home = () => {
     const email = currentUser.email;
     const storagePath = `images/${email}/${image.name}`;
 
-    
+
     const uploadTask = storage.ref(storagePath).put(image)
     uploadTask.on(
       'state_changed',
@@ -51,6 +51,11 @@ const Home = () => {
     )
   }
 
+
+  const handleLogOut = () => {
+
+  }
+
   return (
     <div>
       <h2>Bild Hochladen</h2>
@@ -62,6 +67,8 @@ const Home = () => {
         onChange={(event) => setCaption(event.target.value)}
       />
       <button onClick={handleUpload}>Upload</button>
+      <br/>
+      <button style={{ marginTop: "20px" }} onClick={handleLogOut}>Abmelden</button>  
       <div style={{ marginTop: "5%" }} className="image-list">
         <ImageList/>
       </div> 

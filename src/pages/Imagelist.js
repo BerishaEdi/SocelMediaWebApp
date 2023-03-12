@@ -22,7 +22,7 @@ const Imagelist = () => {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: "gray" }}>
       {images.map(({ url, email, caption }) => (
         <div key={email}>
-          <p style={{backgroundColor: "gray"}}>Hochladen von: {email}</p>
+          <p style={{backgroundColor: "gray"}}>Hochgeladen von: {email}</p>
           <img
             src={url}
             alt="storage-img"
