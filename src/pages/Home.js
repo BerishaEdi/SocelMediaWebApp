@@ -18,14 +18,14 @@ const Home = () => {
   };
 
   const handleUpload = () => {
-    // Get current user
+    
     const currentUser = auth.currentUser;
     if (!currentUser) {
       console.log('User not logged in.');
       return;
     }
 
-    // Create storage path with user email
+    
     const email = currentUser.email;
     const storagePath = `images/${email}/${image.name}`;
 
